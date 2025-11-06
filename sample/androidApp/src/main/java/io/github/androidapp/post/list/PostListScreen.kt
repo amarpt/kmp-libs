@@ -28,6 +28,7 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import io.github.androidapp.R
+import io.github.androidapp.core.handleUiState
 import io.github.androidapp.post.component.PostItem
 import io.github.androidapp.post.detail.PostDetailSheet
 import io.github.postapi.core.Resource
@@ -69,22 +70,11 @@ fun PostListScreen(
                     .padding(innerPadding),
                 contentAlignment = Alignment.Center
             ) {
-                when (uiState) {
-                    is Resource.Loading -> PostLoading()
-                    is Resource.Success -> PostListContent(uiState.data, onItemClicked)
-                    is Resource.Error -> {
-                        if (uiState.message.isEmpty())
-                            PostListContent(uiState.data!!, onItemClicked)
-                        else
-                            PostError(uiState.message, onRetry)
-                    }
-                }
-
-//                uiState.handleUiState(
-//                    onLoading = { PostLoading() },
-//                    onSuccess = { PostListContent(it, onItemClicked) },
-//                    onError = { message, _ -> PostError(message, onRetry) }
-//                )
+                uiState.handleUiState(
+                    onLoading = { PostLoading() },
+                    onSuccess = { PostListContent(it, onItemClicked) },
+                    onError = { message, _ -> PostError(message, onRetry) }
+                )
             }
         }
     )

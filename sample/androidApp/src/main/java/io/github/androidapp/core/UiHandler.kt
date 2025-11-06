@@ -12,6 +12,11 @@ fun <T> Resource<T>.handleUiState(
     when (this) {
         is Resource.Loading -> onLoading()
         is Resource.Success -> onSuccess(data)
-        is Resource.Error -> onError(message, data)
+        is Resource.Error -> {
+            if (message.isEmpty() && data != null)
+                onSuccess(data!!)
+            else
+                onError(message, data)
+        }
     }
 }
