@@ -1,0 +1,69 @@
+# Gradle
+.gradle/
+.kotlin/
+*.iml
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# Build directories
+**/build/
+!src/**/build/
+
+# IDE - IntelliJ
+.idea/
+*.iws
+*.ipr
+*.iml
+
+# Local files
+local.properties
+gradle.local.properties
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android
+captures/
+.externalNativeBuild
+.cxx
+*.apk
+*.ap_
+
+# Android Sample App (in sample/androidApp)
+sample/androidApp/build/
+sample/androidApp/.gradle/
+sample/androidApp/.idea/
+
+# Xcode/iOS
+xcuserdata/
+*.xcodeproj/*
+!*.xcodeproj/project.pbxproj
+!*.xcodeproj/xcshareddata/
+!*.xcodeproj/project.xcworkspace/
+!*.xcworkspace/contents.xcworkspacedata
+DerivedData/
+**/xcshareddata/WorkspaceSettings.xcsettings
+
+# iOS Sample App (in sample/iosApp)
+sample/iosApp/build/
+sample/iosApp/.gradle/
+sample/iosApp/.idea/
+sample/iosApp/Pods/
+sample/iosApp/Podfile.lock
+
+# Node (if using)
+node_modules/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Misc
+*.swp
+*.swo
+*~
+.classpath
+.c9/
