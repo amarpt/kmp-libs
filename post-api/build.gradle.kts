@@ -75,7 +75,8 @@ kotlin {
         androidMain {
             dependencies {
                 implementation(libs.ktor.client.okhttp)
-                compileOnly(libs.koin.android)
+                implementation(libs.koin.android)
+//              implementation(project(":lib-wrapper"))
             }
         }
 
