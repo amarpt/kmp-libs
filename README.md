@@ -71,7 +71,7 @@ object AppModule {
     @Provides
     @Singleton
     fun providePostRepository(): PostRepository {
-        return inject<PostRepository>().value
+        return inject<PostRepository>()
     }
 }
 ```
