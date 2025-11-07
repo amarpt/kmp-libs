@@ -10,9 +10,9 @@ This project demonstrates multi-module KMP library integration with sample Andro
 
 ## Architecture Challenges
 
-**AAR Generation Limitation**: Initially attempted using a `generate-aar` module with fused Android plugin for `.aar` generation and manual .aar generation, but encountered crashes due to internal library maintenance issues. Multi-module dependencies are not automatically included in `.aar` files, requiring separate publication of each module.
 
-**Solution**: Implemented local Maven publication for Android dependency management, providing better stability and module resolution.
+
+**AAR Generation Limitation**: Initially attempted using a `generate-aar` module with fused Android plugin for `.aar` generation and manual .aar generation, but encountered crashes the application if the dependent Gradle/library is not included in the Android application. Multi-module dependencies are not automatically included in `.aar` files, requiring separate publication of each module.
 
 ## Android Integration
 
@@ -41,7 +41,10 @@ dependencies {
     implementation("com.example:post-api:1.0.0")
     implementation("com.example:calc:1.0.0")
     
-    // Alternative: Direct AAR files (not recommended for multi-module)
+    // Alternative: Direct AAR files
+    // implementation(libs.ktor.client.okhttp)
+    // implementation(libs.ktor.client.content.negotiation)
+    // implementation(libs.ktor.serialization.kotlinx.json)
     // implementation(files("../generate-aar/build/outputs/aar/post-api-release.aar"))// implementation(files("../generate-aar/build/outputs/aar/calc-release.aar"))*
 }
 ```
